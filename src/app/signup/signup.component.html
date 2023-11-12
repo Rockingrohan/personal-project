@@ -1,0 +1,64 @@
+<!-- signup.component.html -->
+<div class="signup-container">
+  <h1>Registration</h1>
+
+  <form class="signup-form" [formGroup]="signupForm" (ngSubmit)="SignupAccount()">
+    <div class="form-group">
+      <label for="username">
+        <span class="label-text">Username <span class="required-field">*</span></span>
+        <input formControlName="username" id="username" placeholder="Enter your username" type="text" />
+      </label>
+      <div *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched" class="error-message">
+        Username is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">
+        <span class="label-text">Name <span class="required-field">*</span></span>
+        <input formControlName="name" id="name" placeholder="Enter your full name" type="text" />
+      </label>
+      <div *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched" class="error-message">
+        Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">
+        <span class="label-text">Email <span class="required-field">*</span></span>
+        <input formControlName="email" id="email" placeholder="Enter your email" type="email" />
+      </label>
+      <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="error-message">
+        Please enter a valid email.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">
+        <span class="label-text">Password <span class="required-field">*</span></span>
+        <input formControlName="password" id="password" placeholder="Enter your password" type="password" />
+      </label>
+      <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="error-message">
+        Password is required and must be at least 5 characters.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="role">
+        <span class="label-text">Role <span class="required-field">*</span></span>
+        <select formControlName="role" id="role">
+          <option value="" selected disabled>Select your role</option>
+          <option value="Employee">Employee</option>
+        </select>
+      </label>
+      <div *ngIf="signupForm.get('role')?.invalid && signupForm.get('role')?.touched" class="error-message">
+        Role is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button class="register-btn" type="submit" (click)="SignupAccount()">Register</button>
+      <button class="login-btn" type="button" (click)="goToLogin()">Login</button>
+    </div>
+  </form>
+</div>
