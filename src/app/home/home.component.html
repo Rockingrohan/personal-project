@@ -1,1 +1,93 @@
-<p>home works!</p>
+<header class="header">
+  <div class="logo">
+    <img src="assets\images\Trainease Logo.png" alt="Your Logo" (click)="navigateToHome()">
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact us</a></li>
+      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/signup">Signup</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<main class="main">
+
+  <section id="welcome-section">
+    <div class="welcome-message">
+      <h1>Welcome to Trainease</h1>
+      <p>We empower your workforce through effective training solutions.</p>
+    </div>
+  </section>
+  
+  <section id="features">
+    <div class="feature">
+      <img src="assets\images\Automated Training Schedule.jpg" alt="Automated Scheduling" class="feature-img">
+      <div class="feature-content">
+        <h2>Automated Training Scheduling</h2>
+        <p>Implement an automated scheduling system that eliminates manual coordination, ensuring efficient training sessions planning and reducing conflicts.</p>
+      </div>
+    </div>
+
+    <div class="feature">
+      <img src="assets\images\personalized learning path.jpg" alt="Personalized Learning Paths" class="feature-img">
+      <div class="feature-content">
+        <h2>Personalized Learning Paths</h2>
+        <p>Tailor training programs to individual employee needs and skill levels, providing a more customized and effective learning experience.</p>
+      </div>
+    </div>
+
+    <div class="feature">
+      <img src="assets\images\real time progress tracking.jpg" alt="Real-time Progress Tracking" class="feature-img">
+      <div class="feature-content">
+        <h2>Real-time Progress Tracking</h2>
+        <p>Develop a system for real-time progress monitoring, allowing both employees and managers to track training module completions and assessments.</p>
+      </div>
+    </div>
+
+    <div class="feature">
+      <img src="assets\images\content recommendation.jpg" alt="Content Recommendation" class="feature-img">
+      <div class="feature-content">
+        <h2>Content Recommendation</h2>
+        <p>Recommend relevant training content based on an employee's role, performance, and career goals to ensure an effective learning experience.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section id="about">
+    <div class="about">
+      <h2>About Us</h2>
+      <p>
+        TRAINEASE Platform is designed to revolutionize the way companies handle employee skill development. We believe in empowering employees with the knowledge and tools they need to succeed in their roles.
+      </p>
+      <p>
+        Our platform offers cutting-edge solutions to optimize employee training. We provide an automated scheduling system, personalized learning paths, real-time progress tracking, and content recommendations tailored to individual needs.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form" (submit)="ContactUs()" [formGroup]="ContactUsForm">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input formControlName="name"  type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Your Email</label>
+        <input  formControlName="email" type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea  formControlName="message" id="message" name="message" rows="4" required></textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>&copy; 2023 Your Company. All rights reserved.</p>
+</footer>

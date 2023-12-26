@@ -39,16 +39,22 @@ export class SignupComponent {
     const email = this.signupForm.controls["email"].value;
     const password = this.signupForm.controls["password"].value;
     const role = this.signupForm.controls["role"].value;
+    console.log(role);
 
     const url = `http://localhost:2000/Signup/${username}/${name}/${email}/${password}/${role}`;
     this.http.get(url, { responseType: 'text' }).subscribe(data => {
-      if (data === 'Account Created Successfully') {
-        this.notification("Success", "Account created successfully");
+      if (data === "Account Created Successfully") {
+        this.notification("Success", "Account Created Successfully");
         this.router.navigate(['login']);
-      } else if (data === 'Account Already Exists') {
-        this.toastr.error("Username already exists");
-      } else {
-        this.toastr.warning('Something went wrong!');
+        console.log(1);
+
+      } 
+      else if(data === "Account Already Exists"){
+        this.toastr.error("Account Already Exists");
+        console.log(2);
+      }
+      else{
+        this.toastr.warning("Something went worng , Please try again!");
       }
     });
   }
@@ -57,6 +63,10 @@ export class SignupComponent {
 public goToLogin():void{
   this.router.navigate(['login']);
 
+}
+
+public navigateToHome():void{
+  this.router.navigate(['home'])
 }
 
 // for sweetalert message popups

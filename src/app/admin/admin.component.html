@@ -1,1 +1,156 @@
-<p>admin works!</p>
+<!-- admin-dashboard.component.html -->
+
+<!-- Admin Options to access everything -->
+<div class="admin-dashboard">
+  <div class="sidebar">
+    <h2>Admin Dashboard</h2>
+    <div class="sidebar-buttons">
+      <button class="sidebar-button" (click)="viewEmployees()">
+        View Employees
+      </button>
+      <button class="sidebar-button" (click)="GrantPermissionsDashboard()">
+        Grant Permissions
+      </button>
+      <button class="sidebar-button" (click)="viewTutorialStatus()">
+        View Employee Status
+      </button>
+      <button class="sidebar-button" (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <!-- Admin Home Page  -->
+  <div class="main-content" *ngIf="HomePageVissible">
+    <div class="user-details">
+      <div class="admin-home-page">
+        <h1>Welcome, {{ adminName }}</h1>
+        <p>Trainease Admin Dashboard</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- View Employees details  -->
+  <div class="viewEmployees" *ngIf="viewEmployeesVissible">
+    <h1>Employee Details</h1>
+    <div *ngFor="let item of alldata">
+      <table border="2">
+        <tr>
+          <th>Id</th>
+          <th>Username</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+        </tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.username }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.role }}</td>
+      </table>
+    </div>
+  </div>
+
+  <!-- Grant Permission -->
+  <div>
+    <div class="grantPermisisonsADashboard" *ngIf="grantPermisisonsADashboard">
+      <h1>Employee Accounts</h1>
+      <div *ngFor="let item of permissionData">
+        <table border="2">
+          <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Read Permission</th>
+            <th>Write Permission</th>
+            <th>Append Permission</th>
+          </tr>
+          <td>{{ item.id }}</td>
+          <td>{{ item.username }}</td>
+          <td>{{ item.role }}</td>
+          <td>{{ item.readpermission }}</td>
+          <td>{{ item.writepermission }}</td>
+          <td>{{ item.appendpermission }}</td>
+        </table>
+      </div>
+      <button class="UpdatePermission" (click)="grantPermissionForm()">
+        Update Permission
+      </button>
+    </div>
+
+    <form (submit)="grantPermissions()" [formGroup]="AdminForm">
+      <div class="PermissionForm" *ngIf="grantPermissionsFormVissible">
+        <h1>Grant Permission</h1>
+        <label for="username">User Name</label><br />
+        <input
+          type="text"
+          formControlName="username"
+          name="username"
+          placeholder="Employee Username"
+        /><br />
+
+        <select formControlName="role" placeholder="role">
+          <option value="" selected disabled>Select Role</option>
+          <option value="Employee">Employee</option>
+        </select>
+
+        <label>
+          Read Permission:
+          <input
+            type="radio"
+            formControlName="readPermission"
+            value="YES"
+            name="readPermission"
+          />YES
+          <input
+            type="radio"
+            formControlName="readPermission"
+            value="NO"
+            name="readPermission"
+          />NO
+        </label>
+
+        <label>
+          Write Permission:
+          <input
+            type="radio"
+            formControlName="writePermission"
+            value="YES"
+            name="writePermission"
+          />YES
+          <input
+            type="radio"
+            formControlName="writePermission"
+            value="NO"
+            name="writePermission"
+          />NO
+        </label>
+
+        <label>
+          Append Permission:
+          <input
+            type="radio"
+            formControlName="appendPermission"
+            value="YES"
+            name="appendPermission"
+          />YES
+          <input
+            type="radio"
+            formControlName="appendPermission"
+            value="NO"
+            name="appendPermission"
+          />NO
+        </label>
+
+        <button class="BackToPermission" (click)="goBackToGrantPermission()">
+          Go Back
+        </button>
+        <button type="submit">Update Permission</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Employee Status Dashboard  -->
+<div class="employee-status-dashboard" *ngIf="this.employeeStatusDashboardVissible">
+  <h1>Coming Sooon</h1>
+  <h5>This feature is currently under progress</h5>
+</div>
