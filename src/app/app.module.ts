@@ -13,6 +13,12 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 // import { AuthGuard } from './auth.guard'; 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+import { LevelComponent } from './level/level.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +28,8 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
     EmployeeComponent,
     LoginComponent,
     SignupComponent,
-    ForgetpasswordComponent
+    ForgetpasswordComponent,
+    LevelComponent
   ],
   imports: [
     BrowserModule,
@@ -37,9 +44,14 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
       closeButton: true,
       progressBar: true
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatCheckboxModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule
   ],
-  // providers: [AuthGuard], // Use AuthGuard here if not already done
+  providers: [], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

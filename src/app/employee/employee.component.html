@@ -1,1 +1,64 @@
-<p>employee works!</p>
+<mat-toolbar class="header" color="primary">
+  <div class="logo">
+    <img src="assets/images/Trainease Logo.png" alt="Your Logo">
+  </div>
+  <span></span>
+</mat-toolbar> 
+
+
+<!-- Employee Dashboard  -->
+<div class="employee-dashboard">
+  <button mat-icon-button class="sidebar-toggle" (click)="toggleSidebar()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav [opened]="sidebarOpened" mode="side">
+      <mat-nav-list>
+        <h2 mat-subheader>Profile Manager</h2>
+        <button mat-list-item (click)="dashboard()" class="sidebar-button">Dashboard</button>
+        <button mat-list-item (click)="practice()" class="sidebar-button">Practice</button>
+        <button mat-list-item (click)="crashcourse()" class="sidebar-button">Crash Courses</button>
+        <button mat-list-item (click)="recommendations()" class="sidebar-button">Recommendations</button>
+        <button mat-list-item (click)="logout()" class="sidebar-button">Logout</button>
+      </mat-nav-list>
+    </mat-sidenav>
+
+
+
+
+    <div class="main-content" *ngIf="dashboardvissible">
+      <div class="welcome-section">
+        <h1>Welcome to Trainease</h1>
+        <div class="improve-skills">
+          <p>Everything you need to improve your</p>
+          <h1>Skills</h1>
+        </div>
+      </div>
+      <div class="levels-container">
+        <div class="levels">
+          <div class="level">
+            <img src="assets/images/Level 1.jpg" (click)="redirect()" alt="Level 1">
+            <h2>Level 1</h2>
+          </div>
+          <div class="level">
+            <img src="assets/images/level 2.jpg" (click)="redirect()" alt="Level 2">
+            <h2>Level 2</h2>
+          </div>
+          <div class="level">
+            <img src="assets/images/level 3.jpg" (click)="redirect()" alt="Level 3">
+            <h2>Level 3</h2>
+          </div>
+          <div class="level">
+            <img src="assets/images/level 4.jpg" (click)="redirect()" alt="Level 4">
+            <h2>Level 4</h2>
+          </div>
+          <div class="level">
+            <img src="assets/images/page 5.jpg" (click)="redirect()" alt="Level 5">
+            <h2>Level 5</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </mat-sidenav-container>
+</div>

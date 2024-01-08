@@ -6,16 +6,18 @@ import { EmployeeComponent } from './employee/employee.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { LevelComponent } from './level/level.component';
 // import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'admin', component: AdminComponent },
+{ path: 'admin', component: AdminComponent },
   { path: 'employee', component: EmployeeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'forgetpassword', component: ForgetpasswordComponent },
+  { path: 'level' , component: LevelComponent},
   { path: '**', redirectTo: '/home' }
 ];
 

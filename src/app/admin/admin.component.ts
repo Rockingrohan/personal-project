@@ -11,8 +11,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent {
-  private loggedInKey = 'isUserLoggedIn';
-
   adminName: string = 'Admin';
   public HomePageVissible = true;
   public alldata: any;
@@ -43,6 +41,7 @@ export class AdminComponent {
     this.viewEmployeesVissible = true;
     this.grantPermissionsFormVissible = false;
     this.grantPermisisonsADashboard = false;
+    this.employeeStatusDashboardVissible = false;
 
     const url = `http://localhost:2000/viewemployees`;
 
@@ -67,6 +66,7 @@ export class AdminComponent {
     this.viewEmployeesVissible = false;
     this.grantPermisisonsADashboard = true;
     this.grantPermissionsFormVissible = false;
+    this.employeeStatusDashboardVissible = false;
     const url = `http://localhost:2000/viewpermission`;
 
     this.http.get(url, { responseType: 'json' }).subscribe((data) => {
@@ -88,6 +88,7 @@ export class AdminComponent {
     this.viewEmployeesVissible = false;
     this.HomePageVissible = false;
     this.grantPermissionsFormVissible = false;
+    this.employeeStatusDashboardVissible = false;
     const username = this.AdminForm.controls['username'].value;
     const role = this.AdminForm.controls['role'].value;
     const readPermission = this.AdminForm.controls['readPermission'].value;
@@ -108,15 +109,16 @@ export class AdminComponent {
     });
   }
 
-  public viewTutorialStatus(): void {
+  public EmployeeStatus(): void {
     this.employeeStatusDashboardVissible = true;
     this.HomePageVissible = false;
+    this.viewEmployeesVissible = false;
     this.grantPermisisonsADashboard = false;
   }
 
   public logout(): void {
     // Perform other logout logic if needed
-    const username = 'Admin'; // Replace 'the_username' with the actual username
+    const username = 'Admin'; 
     const url = `http://localhost:2000/logout/${username}`;
     this.http.get(url,{responseType:'text'}).subscribe(data =>{
       if(data=="Logged out successfully"){
@@ -128,6 +130,20 @@ export class AdminComponent {
         this.toastr.error("Try again later!");
       }
     })
+  }
+
+
+  public backToDashboard():void{
+    this.HomePageVissible = true;
+    this.viewEmployeesVissible = false;
+    this.employeeStatusDashboardVissible = false;
+
+  }
+
+  public fromGrantPermissionToHome():void{
+    this.HomePageVissible = true;
+    this.grantPermisisonsADashboard=false;
+    this.employeeStatusDashboardVissible = false;
   }
 
   // for sweetalert message popups
