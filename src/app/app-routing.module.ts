@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { LevelComponent } from './level/level.component';
+import { CrashcourseComponent } from './crashcourse/crashcourse.component';
+import { RecommendationsComponent } from './recommendations/recommendations.component';
 // import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -17,7 +19,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'forgetpassword', component: ForgetpasswordComponent },
-  { path: 'level' , component: LevelComponent},
+  { path: 'employee-practice' , component: LevelComponent},
+  { path: 'employee-crash-course',component:CrashcourseComponent},
+  {path: 'employee-recommendations', component:RecommendationsComponent},
   { path: '**', redirectTo: '/home' }
 ];
 

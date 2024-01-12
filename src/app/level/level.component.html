@@ -1,1 +1,666 @@
-<p>level works!</p>
+<mat-toolbar class="header" color="primary">
+    <div class="logo">
+      <img src="assets/images/Trainease Logo.png" alt="Your Logo">
+    </div>
+    <span></span>
+  </mat-toolbar> 
+  
+  
+  <!-- Employee Dashboard  -->
+  <div class="practice-dashboard">
+    <button mat-icon-button class="sidebar-toggle" (click)="toggleSidebar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav [opened]="sidebarOpened" mode="side">
+        <mat-nav-list>
+          <h2 mat-subheader>Profile Manager</h2>
+          <button mat-list-item (click)="practice_dashboard()" class="sidebar-button">Dashboard</button>
+          <button mat-list-item (click)="practice()" class="sidebar-button">Practice</button>
+          <button mat-list-item (click)="crashcourse()" class="sidebar-button">Crash Courses</button>
+          <button mat-list-item (click)="recommendations()" class="sidebar-button">Recommendations</button>
+          <button mat-list-item (click)="logout()" class="sidebar-button">Logout</button>
+        </mat-nav-list>
+      </mat-sidenav>
+  
+<!--  -->
+      <div class="main-content" *ngIf="dashboardvissible">
+        <div class="welcome-section">
+          <h1>Test yourself</h1>
+          <div class="improve-skills">
+            <p>Everything you need to improve your</p>
+            <h1>Skills</h1>
+          </div>
+        </div>
+        <div class="levels-container">
+          <div class="levels">
+            <div class="level">
+                <h2>Level 1</h2>
+              <img src="assets/images/Level 1.jpg" (click)="showLevel(1)"  alt="Level 1">
+            </div>
+            <div class="level">
+              <img src="assets/images/level 2.jpg"  (click)="showLevel(2)" alt="Level 2">
+              <h2>Level 2</h2>
+            </div>
+            <div class="level">
+                <h2>Level 3</h2>
+              <img src="assets/images/level 3.jpg" (click)="showLevel(3)" alt="Level 3">
+            </div>
+            <div class="level">
+              <img src="assets/images/level 4.jpg" (click)="showLevel(4)" alt="Level 4">
+              <h2>Level 4</h2>
+            </div>
+            <div class="level">
+                <h2>Level 5</h2>
+              <img src="assets/images/page 5.jpg" (click)="showLevel(5)" alt="Level 5">
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-sidenav-container>
+
+</div>
+
+
+<!-- Level 1  -->
+<div class="show-level" *ngIf="showLevel_1_Visible">
+    <h2>Level 1: Foundational Skills</h2>
+    <div class="topic-boxes">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="topic-box" (click)="openL1Topic(1)">
+                    <p>Communication Skills</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-box"  (click)="openL1Topic(2)">
+                    <p>Time Management</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-box" (click)="openL1Topic(3)">
+                    <p>Workplace Etiquette</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="topic-box" (click)="openL1Topic(4)">
+                    <p>Basic Computer Literacy</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-box" (click)="openL1Topic(5)">
+                    <p>Introduction to Company Policies and Procedures</p>
+                </div>
+            </div>
+            <button class="dashboard-button" type="button" (click)="practice_dashboard()">Back to Dashboard</button>
+        </div>
+    </div>
+</div>
+
+<!-- To view the Level 1 Topic wise quetsion forms -->
+<div *ngIf="L1T1Vissible" class="communication-skills">
+    <h1>Communication Skills</h1>
+    <form>
+        <ol>
+            <li>
+                <p>Q1. What is the primary purpose of effective communication in the workplace?</p>
+                <input type="radio" id="q1a" name="q1" value="A">
+                <label for="q1a">A) To impress colleagues</label><br>
+                <input type="radio" id="q1b" name="q1" value="B">
+                <label for="q1b">B) To exchange information and ideas</label><br>
+                <input type="radio" id="q1c" name="q1" value="C">
+                <label for="q1c">C) To dominate conversations</label><br>
+                <input type="radio" id="q1d" name="q1" value="D">
+                <label for="q1d">D) To show off vocabulary</label><br>
+            </li>
+            <!-- Question 2 -->
+            <li>
+                <p>Q2. Which of the following is an example of non-verbal communication?</p>
+                <input type="radio" id="q2a" name="q2" value="A">
+                <label for="q2a">A) Email</label><br>
+                <input type="radio" id="q2b" name="q2" value="B">
+                <label for="q2b">B) Facial expressions</label><br>
+                <input type="radio" id="q2c" name="q2" value="C">
+                <label for="q2c">C) Phone call</label><br>
+                <input type="radio" id="q2d" name="q2" value="D">
+                <label for="q2d">D) Presentation</label><br>
+            </li>
+            <!-- Question 3 -->
+            <li>
+                <p>Q3. What does active listening involve?</p>
+                <input type="radio" id="q3a" name="q3" value="A">
+                <label for="q3a">A) Speaking louder than others</label><br>
+                <input type="radio" id="q3b" name="q3" value="B">
+                <label for="q3b">B) Interrupting to share your thoughts</label><br>
+                <input type="radio" id="q3c" name="q3" value="C">
+                <label for="q3c">C) Focusing on and understanding the speaker</label><br>
+                <input type="radio" id="q3d" name="q3" value="D">
+                <label for="q3d">D) Ignoring the speaker's message</label><br>
+            </li>
+            <!-- Question 4 -->
+            <li>
+                <p>Q4. In written communication, what does the term "conciseness" refer to?</p>
+                <input type="radio" id="q4a" name="q4" value="A">
+                <label for="q4a">A) Using complex words</label><br>
+                <input type="radio" id="q4b" name="q4" value="B">
+                <label for="q4b">B) Being brief and to the point</label><br>
+                <input type="radio" id="q4c" name="q4" value="C">
+                <label for="q4c">C) Including unnecessary details</label><br>
+                <input type="radio" id="q4d" name="q4" value="D">
+                <label for="q4d">D) Using jargon</label><br>
+            </li>
+            <!-- Question 5 -->
+            <li>
+                <p>Q5. When is it appropriate to use formal language in communication?</p>
+                <input type="radio" id="q5a" name="q5" value="A">
+                <label for="q5a">A) Only in written reports</label><br>
+                <input type="radio" id="q5b" name="q5" value="B">
+                <label for="q5b">B) When addressing superiors and clients</label><br>
+                <input type="radio" id="q5c" name="q5" value="C">
+                <label for="q5c">C) Always, to appear professional</label><br>
+                <input type="radio" id="q5d" name="q5" value="D">
+                <label for="q5d">D) Only in casual conversations</label><br>
+            </li>
+        </ol>
+        <button type="submit">Submit</button>
+        <button class="back-btn" type="button" (click)="practice_dashboard()">Back</button>
+    </form>
+</div>
+
+
+
+<!-- Level 1 - Topic 2 -->
+<div *ngIf="L1T2Vissible" class="time-management">
+    <h1>Time Management</h1>
+    <form>
+        <ol>
+            <li>
+                <p>1] What is the first step in effective time management?</p>
+                <input type="radio" id="q1a" name="q1" value="A">
+                <label for="q1a">A) Creating a to-do list</label><br>
+                <input type="radio" id="q1b" name="q1" value="B">
+                <label for="q1b">B) Prioritizing tasks</label><br>
+                <input type="radio" id="q1c" name="q1" value="C">
+                <label for="q1c">C) Setting goals</label><br>
+                <input type="radio" id="q1d" name="q1" value="D">
+                <label for="q1d">D) Identifying time-wasting activities</label><br>
+            </li>
+            <!-- Question 2 -->
+            <li>
+                <p>2] What does the Eisenhower Matrix help with?</p>
+                <input type="radio" id="q2a" name="q2" value="A">
+                <label for="q2a">A) Scheduling appointments</label><br>
+                <input type="radio" id="q2b" name="q2" value="B">
+                <label for="q2b">B) Prioritizing tasks based on urgency and importance</label><br>
+                <input type="radio" id="q2c" name="q2" value="C">
+                <label for="q2c">C) Time tracking</label><br>
+                <input type="radio" id="q2d" name="q2" value="D">
+                <label for="q2d">D) Delegating responsibilities</label><br>
+            </li>
+            <!-- Question 3 -->
+            <li>
+                <p>3] What is the purpose of setting SMART goals?</p>
+                <input type="radio" id="q3a" name="q3" value="A">
+                <label for="q3a">A) To make goals sound impressive</label><br>
+                <input type="radio" id="q3b" name="q3" value="B">
+                <label for="q3b">B) To ensure goals are specific, measurable, achievable, relevant, and time-bound</label><br>
+                <input type="radio" id="q3c" name="q3" value="C">
+                <label for="q3c">C) To make goals flexible</label><br>
+                <input type="radio" id="q3d" name="q3" value="D">
+                <label for="q3d">D) To avoid setting goals altogether</label><br>
+            </li>
+            <!-- Question 4 -->
+            <li>
+                <p>4] How can batching similar tasks help with time management?</p>
+                <input type="radio" id="q4a" name="q4" value="A">
+                <label for="q4a">A) It creates chaos</label><br>
+                <input type="radio" id="q4b" name="q4" value="B">
+                <label for="q4b">B) It increases multitasking</label><br>
+                <input type="radio" id="q4c" name="q4" value="C">
+                <label for="q4c">C) It reduces switching costs and increases efficiency</label><br>
+                <input type="radio" id="q4d" name="q4" value="D">
+                <label for="q4d">D) It only works for creative tasks</label><br>
+            </li>
+            <!-- Question 5 -->
+            <li>
+                <p>5] What is the significance of the "Pomodoro Technique" in time management?</p>
+                <input type="radio" id="q5a" name="q5" value="A">
+                <label for="q5a">A) Long breaks between tasks</label><br>
+                <input type="radio" id="q5b" name="q5" value="B">
+                <label for="q5b">B) Short, focused work intervals with breaks</label><br>
+                <input type="radio" id="q5c" name="q5" value="C">
+                <label for="q5c">C) Continuous work without breaks</label><br>
+                <input type="radio" id="q5d" name="q5" value="D">
+                <label for="q5d">D) Randomized work intervals</label><br>
+            </li>
+        </ol>
+        <button type="submit">Submit</button>
+        <button class="back-btn" type="button" (click)="practice_dashboard()">Back</button>
+    </form>
+</div>
+
+<!-- L1 Topic 3 -->
+<div *ngIf="L1T3Vissible" class="workplace-etiquette">
+    <h1>Workplace Etiquette</h1>
+    <form>
+        <ol>
+            <li>
+                <p>1] Why is punctuality important in the workplace?</p>
+                <input type="radio" id="q1a" name="q1" value="A">
+                <label for="q1a">A) It allows time for socializing</label><br>
+                <input type="radio" id="q1b" name="q1" value="B">
+                <label for="q1b">B) It shows respect for others' time</label><br>
+                <input type="radio" id="q1c" name="q1" value="C">
+                <label for="q1c">C) It is unnecessary</label><br>
+                <input type="radio" id="q1d" name="q1" value="D">
+                <label for="q1d">D) It helps in procrastination</label><br>
+            </li>
+            <!-- Question 2 -->
+            <li>
+                <p>2] How should one handle conflicts with colleagues in a professional manner?</p>
+                <input type="radio" id="q2a" name="q2" value="A">
+                <label for="q2a">A) Avoiding the issue</label><br>
+                <input type="radio" id="q2b" name="q2" value="B">
+                <label for="q2b">B) Gossiping about the colleague</label><br>
+                <input type="radio" id="q2c" name="q2" value="C">
+                <label for="q2c">C) Addressing concerns directly and respectfully</label><br>
+                <input type="radio" id="q2d" name="q2" value="D">
+                <label for="q2d">D) Ignoring the colleague</label><br>
+            </li>
+            <!-- Question 3 -->
+            <li>
+                <p>3] What is the appropriate way to respond to constructive criticism?</p>
+                <input type="radio" id="q3a" name="q3" value="A">
+                <label for="q3a">A) Becoming defensive</label><br>
+                <input type="radio" id="q3b" name="q3" value="B">
+                <label for="q3b">B) Ignoring it</label><br>
+                <input type="radio" id="q3c" name="q3" value="C">
+                <label for="q3c">C) Thanking the person and using it to improve</label><br>
+                <input type="radio" id="q3d" name="q3" value="D">
+                <label for="q3d">D) Criticizing back</label><br>
+            </li>
+            <!-- Question 4 -->
+            <li>
+                <p>4] Why is maintaining a clean and organized workspace important?</p>
+                <input type="radio" id="q4a" name="q4" value="A">
+                <label for="q4a">A) It doesn't matter</label><br>
+                <input type="radio" id="q4b" name="q4" value="B">
+                <label for="q4b">B) It improves focus and productivity</label><br>
+                <input type="radio" id="q4c" name="q4" value="C">
+                <label for="q4c">C) It's a personal choice</label><br>
+                <input type="radio" id="q4d" name="q4" value="D">
+                <label for="q4d">D) Messy workspaces are trendy</label><br>
+            </li>
+            <!-- Question 5 -->
+            <li>
+                <p>5] How should one handle personal calls or messages during work hours?</p>
+                <input type="radio" id="q5a" name="q5" value="A">
+                <label for="q5a">A) Ignoring them</label><br>
+                <input type="radio" id="q5b" name="q5" value="B">
+                <label for="q5b">B) Taking long breaks to respond</label><br>
+                <input type="radio" id="q5c" name="q5" value="C">
+                <label for="q5c">C) Managing them discreetly during breaks or outside work hours</label><br>
+                <input type="radio" id="q5d" name="q5" value="D">
+                <label for="q5d">D) Discussing personal matters openly in the workplace</label><br>
+            </li>
+        </ol>
+        <button type="submit">Submit</button>
+        <button class="back-btn" type="button" (click)="practice_dashboard()">Back</button>
+    </form>
+</div>
+
+
+
+
+
+<div *ngIf="L1T4Vissible" class="basic-computer-literacy">
+    <h1>Basic Computer Literacy</h1>
+    <form>
+        <ol>
+            <li>
+                <p>1] What is a common function of spreadsheet software?</p>
+                <input type="radio" id="q1a" name="q1" value="A">
+                <label for="q1a">A) Sending emails</label><br>
+                <input type="radio" id="q1b" name="q1" value="B">
+                <label for="q1b">B) Word processing</label><br>
+                <input type="radio" id="q1c" name="q1" value="C">
+                <label for="q1c">C) Data analysis and calculations</label><br>
+                <input type="radio" id="q1d" name="q1" value="D">
+                <label for="q1d">D) Playing games</label><br>
+            </li>
+            <!-- Question 2 -->
+            <li>
+                <p>2] What does the term "URL" stand for?</p>
+                <input type="radio" id="q2a" name="q2" value="A">
+                <label for="q2a">A) Universal Remote Locator</label><br>
+                <input type="radio" id="q2b" name="q2" value="B">
+                <label for="q2b">B) Uniform Resource Locator</label><br>
+                <input type="radio" id="q2c" name="q2" value="C">
+                <label for="q2c">C) Unified Resource Link</label><br>
+                <input type="radio" id="q2d" name="q2" value="D">
+                <label for="q2d">D) User Relative Link</label><br>
+            </li>
+            <!-- Question 3 -->
+            <li>
+                <p>3] What is the purpose of antivirus software?</p>
+                <input type="radio" id="q3a" name="q3" value="A">
+                <label for="q3a">A) Creating viruses</label><br>
+                <input type="radio" id="q3b" name="q3" value="B">
+                <label for="q3b">B) Protecting against viruses and malware</label><br>
+                <input type="radio" id="q3c" name="q3" value="C">
+                <label for="q3c">C) Speeding up the computer</label><br>
+                <input type="radio" id="q3d" name="q3" value="D">
+                <label for="q3d">D) Deleting important files</label><br>
+            </li>
+            <!-- Question 4 -->
+            <li>
+                <p>4] Which file format is commonly used for documents that should be easily printable and shareable?</p>
+                <input type="radio" id="q4a" name="q4" value="A">
+                <label for="q4a">A) .exe</label><br>
+                <input type="radio" id="q4b" name="q4" value="B">
+                <label for="q4b">B) .pdf</label><br>
+                <input type="radio" id="q4c" name="q4" value="C">
+                <label for="q4c">C) .jpg</label><br>
+                <input type="radio" id="q4d" name="q4" value="D">
+                <label for="q4d">D) .mp3</label><br>
+            </li>
+            <!-- Question 5 -->
+            <li>
+                <p>5] What does the "copy and paste" function allow you to do?</p>
+                <input type="radio" id="q5a" name="q5" value="A">
+                <label for="q5a">A) Delete text</label><br>
+                <input type="radio" id="q5b" name="q5" value="B">
+                <label for="q5b">B) Duplicate text in another location</label><br>
+                <input type="radio" id="q5c" name="q5" value="C">
+                <label for="q5c">C) Change font size</label><br>
+                <input type="radio" id="q5d" name="q5" value="D">
+                <label for="q5d">D) Print documents</label><br>
+            </li>
+        </ol>
+        <button type="submit">Submit</button>
+        <button class="back-btn" type="button" (click)="practice_dashboard()">Back</button>
+
+    </form>
+</div>
+
+
+
+<div *ngIf="L1T5Vissible" class="company-policies">
+    <h1>Introduction to Company Policies and Procedures</h1>
+    <form>
+        <ol>
+            <li>
+                <p>1] Why is it important to be familiar with company policies and procedures?</p>
+                <input type="radio" id="q1a" name="q1" value="A">
+                <label for="q1a">A) To break the rules</label><br>
+                <input type="radio" id="q1b" name="q1" value="B">
+                <label for="q1b">B) To impress colleagues</label><br>
+                <input type="radio" id="q1c" name="q1" value="C">
+                <label for="q1c">C) To ensure compliance and consistency</label><br>
+                <input type="radio" id="q1d" name="q1" value="D">
+                <label for="q1d">D) Policies are irrelevant</label><br>
+            </li>
+            <!-- Question 2 -->
+            <li>
+                <p>2] What should you do if you are unsure about a specific company policy?</p>
+                <input type="radio" id="q2a" name="q2" value="A">
+                <label for="q2a">A) Ignore it</label><br>
+                <input type="radio" id="q2b" name="q2" value="B">
+                <label for="q2b">B) Ask a colleague for advice</label><br>
+                <input type="radio" id="q2c" name="q2" value="C">
+                <label for="q2c">C) Refer to the company policy documentation or ask a supervisor</label><br>
+                <input type="radio" id="q2d" name="q2" value="D">
+                <label for="q2d">D) Assume the most convenient option</label><br>
+            </li>
+            <!-- Question 3 -->
+            <li>
+                <p>3] What is the purpose of a code of conduct in a company?</p>
+                <input type="radio" id="q3a" name="q3" value="A">
+                <label for="q3a">A) To limit creativity</label><br>
+                <input type="radio" id="q3b" name="q3" value="B">
+                <label for="q3b">B) To provide guidelines for ethical behavior</label><br>
+                <input type="radio" id="q3c" name="q3" value="C">
+                <label for="q3c">C) To promote discrimination</label><br>
+                <input type="radio" id="q3d" name="q3" value="D">
+                <label for="q3d">D) To make employees uncomfortable</label><br>
+            </li>
+            <!-- Question 4 -->
+            <li>
+                <p>4] Why is data privacy important in the workplace?</p>
+                <input type="radio" id="q4a" name="q4" value="A">
+                <label for="q4a">A) It is not important</label><br>
+                <input type="radio" id="q4b" name="q4" value="B">
+                <label for="q4b">B) To protect confidential information and maintain trust</label><br>
+                <input type="radio" id="q4c" name="q4" value="C">
+                <label for="q4c">C) To increase productivity</label><br>
+                <input type="radio" id="q4d" name="q4" value="D">
+                <label for="q4d">D) To share information openly</label><br>
+            </li>
+            <!-- Question 5 -->
+            <li>
+                <p>5] How should employees handle confidential information?</p>
+                <input type="radio" id="q5a" name="q5" value="A">
+                <label for="q5a">A) Share it with friends</label><br>
+                <input type="radio" id="q5b" name="q5" value="B">
+                <label for="q5b">B) Keep it confidential and only disclose to authorized individuals</label><br>
+                <input type="radio" id="q5c" name="q5" value="C">
+                <label for="q5c">C) Post it on social media</label><br>
+                <input type="radio" id="q5d" name="q5" value="D">
+                <label for="q5d">D) Sell it for personal gain</label><br>
+            </li>
+        </ol>
+        <button type="submit">Submit</button>
+        <button class="back-btn" type="button" (click)="practice_dashboard()">Back</button>
+    </form>
+</div>
+
+
+
+<!-- Level 2 -->
+<div class="show-level" *ngIf="showLevel_2_Visible">
+    <h2>Level 2: Technical Proficiency</h2>
+    <div class="topic-boxes">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="topic-box" (click)="openL2Topic(1)">
+                    <p>Software Proficiency </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-box"  (click)="openL2Topic(2)">
+                    <p>Technical Writing</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-box" (click)="openL2Topic(3)">
+                    <p>Data Analysis Tools </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="topic-box" (click)="openL2Topic(4)">
+                    <p>Coding/Programming Fundamentals</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-box" (click)="openL2Topic(5)">
+                    <p>Industry-Specific Technical Skills</p>
+                </div>
+            </div>
+            <button class="dashboard-button" type="button" (click)="practice_dashboard()">Back to Dashboard</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="L2T1Vissible" class="software-proficiency">
+    <h1>Software Proficiency</h1>
+    <form>
+        <ol>
+            <!-- Question 1 -->
+            <li>
+                <p>What is the primary purpose of Microsoft Excel in business settings?</p>
+                <input type="radio" id="q1a" name="q1" value="A">
+                <label for="q1a">A) Creating graphic designs</label><br>
+                <input type="radio" id="q1b" name="q1" value="B">
+                <label for="q1b">B) Word processing</label><br>
+                <input type="radio" id="q1c" name="q1" value="C">
+                <label for="q1c">C) Data analysis and manipulation</label><br>
+                <input type="radio" id="q1d" name="q1" value="D">
+                <label for="q1d">D) Video editing</label><br>
+            </li>
+            <!-- Question 2 -->
+            <li>
+                <p>Which Microsoft Office application is best suited for creating presentations?</p>
+                <input type="radio" id="q2a" name="q2" value="A">
+                <label for="q2a">A) Excel</label><br>
+                <input type="radio" id="q2b" name="q2" value="B">
+                <label for="q2b">B) Word</label><br>
+                <input type="radio" id="q2c" name="q2" value="C">
+                <label for="q2c">C) PowerPoint</label><br>
+                <input type="radio" id="q2d" name="q2" value="D">
+                <label for="q2d">D) Outlook</label><br>
+            </li>
+            <!-- Question 3 -->
+            <li>
+                <p>In Microsoft Word, what does the "spell check" feature help with?</p>
+                <input type="radio" id="q3a" name="q3" value="A">
+                <label for="q3a">A) Formatting paragraphs</label><br>
+                <input type="radio" id="q3b" name="q3" value="B">
+                <label for="q3b">B) Analyzing data</label><br>
+                <input type="radio" id="q3c" name="q3" value="C">
+                <label for="q3c">C) Correcting spelling and grammar errors</label><br>
+                <input type="radio" id="q3d" name="q3" value="D">
+                <label for="q3d">D) Creating charts</label><br>
+            </li>
+            <!-- Question 4 -->
+            <li>
+                <p>What is the main function of Microsoft Outlook in a professional environment?</p>
+                <input type="radio" id="q4a" name="q4" value="A">
+                <label for="q4a">A) Image editing</label><br>
+                <input type="radio" id="q4b" name="q4" value="B">
+                <label for="q4b">B) Email communication and organization</label><br>
+                <input type="radio" id="q4c" name="q4" value="C">
+                <label for="q4c">C) Database management</label><br>
+                <input type="radio" id="q4d" name="q4" value="D">
+                <label for="q4d">D) Web development</label><br>
+            </li>
+        </ol>
+        <button type="submit">Submit</button>
+        <button class="back-btn" type="button" (click)="practice_dashboard()">Back</button>
+
+    </form>
+</div>
+
+
+<!-- Level 3 -->
+<div class="show-level" *ngIf="showLevel_3_Visible">
+    <h2>Level 3: Professional Development</h2>
+    <div class="topic-boxes">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="topic-box" (click)="openL3Topic(1)">
+                    <p>Leadership and Management Skills</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-box"  (click)="openL3Topic(2)">
+                    <p>Team Project Management Principles</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-box" (click)="openL3Topic(3)">
+                    <p>Conflict Resolution and Negotiation </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="topic-box" (click)="openL3Topic(4)">
+                    <p>Critical Thinking and Problem-Solving</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-box" (click)="openL3Topic(5)">
+                    <p>Emotional Intelligence and Resilience</p>
+                </div>
+            </div>
+            <button class="dashboard-button" type="button" (click)="practice_dashboard()">Back to Dashboard</button>
+        </div>
+    </div>
+</div>
+
+
+
+    <div *ngIf="L3T1Vissible" class="leadership-skills">
+        <h1>Leadership and Management Skills</h1>
+        <form>
+            <ol>
+                <!-- Question 1 -->
+                <li>
+                    <p>What is a key characteristic of effective leadership?</p>
+                    <input type="radio" id="q1a" name="q1" value="A">
+                    <label for="q1a">A) Micromanaging every task</label><br>
+                    <input type="radio" id="q1b" name="q1" value="B">
+                    <label for="q1b">B) Avoiding decision-making</label><br>
+                    <input type="radio" id="q1c" name="q1" value="C">
+                    <label for="q1c">C) Empowering and inspiring team members</label><br>
+                    <input type="radio" id="q1d" name="q1" value="D">
+                    <label for="q1d">D) Focusing solely on individual achievements</label><br>
+                </li>
+                <!-- Question 2 -->
+                <li>
+                    <p>In management, what is the purpose of delegation?</p>
+                    <input type="radio" id="q2a" name="q2" value="A">
+                    <label for="q2a">A) Maintaining control over all tasks</label><br>
+                    <input type="radio" id="q2b" name="q2" value="B">
+                    <label for="q2b">B) Reducing team involvement</label><br>
+                    <input type="radio" id="q2c" name="q2" value="C">
+                    <label for="q2c">C) Empowering team members and distributing tasks appropriately</label><br>
+                    <input type="radio" id="q2d" name="q2" value="D">
+                    <label for="q2d">D) Avoiding responsibility</label><br>
+                </li>
+                <!-- Question 3 -->
+                <li>
+                    <p>What does the term "visionary leadership" mean?</p>
+                    <input type="radio" id="q3a" name="q3" value="A">
+                    <label for="q3a">A) Focusing only on short-term goals</label><br>
+                    <input type="radio" id="q3b" name="q3" value="B">
+                    <label for="q3b">B) Inspiring and guiding a team towards a shared vision</label><br>
+                    <input type="radio" id="q3c" name="q3" value="C">
+                    <label for="q3c">C) Avoiding decision-making</label><br>
+                    <input type="radio" id="q3d" name="q3" value="D">
+                    <label for="q3d">D) Ignoring team members' opinions</label><br>
+                </li>
+                <!-- Question 4 -->
+                <li>
+                    <p>How does a transformational leader influence their team?</p>
+                    <input type="radio" id="q4a" name="q4" value="A">
+                    <label for="q4a">A) By using fear and intimidation</label><br>
+                    <input type="radio" id="q4b" name="q4" value="B">
+                    <label for="q4b">B) By setting unrealistic goals</label><br>
+                    <input type="radio" id="q4c" name="q4" value="C">
+                    <label for="q4c">C) By inspiring and motivating through a compelling vision</label><br>
+                    <input type="radio" id="q4d" name="q4" value="D">
+                    <label for="q4d">D) By avoiding communication</label><br>
+                </li>
+                <!-- Question 5 -->
+                <li>
+                    <p>What is the role of emotional intelligence in effective leadership?</p>
+                    <input type="radio" id="q5a" name="q5" value="A">
+                    <label for="q5a">A) Ignoring emotions in the workplace</label><br>
+                    <input type="radio" id="q5b" name="q5" value="B">
+                    <label for="q5b">B) Recognizing and managing one's own emotions and those of others</label><br>
+                    <input type="radio" id="q5c" name="q5" value="C">
+                    <label for="q5c">C) Suppressing all emotions</label><br>
+                    <input type="radio" id="q5d" name="q5" value="D">
+                    <label for="q5d">D) Micromanaging team members' emotions</label><br>
+                </li>
+            </ol>
+            <button type="submit">Submit</button>
+            <button class="back-btn" type="button" (click)="practice_dashboard()">Back</button>
+        </form>
+    </div>
+    

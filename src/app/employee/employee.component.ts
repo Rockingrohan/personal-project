@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 export class EmployeeComponent {
 
   public dashboardvissible = true;
-  public practicePageVissible = false;
+  // public practicePageVissible = false;
   sidebarOpened = false;
 
 
@@ -25,7 +25,7 @@ export class EmployeeComponent {
 
 
     redirect(){
-      this.router.navigate(['level'])
+      this.router.navigate(['employee-practice'])
     }
     toggleSidebar() {
       this.sidebarOpened = !this.sidebarOpened;
@@ -37,19 +37,22 @@ export class EmployeeComponent {
     }
 
     public practice():void{
-      this.dashboardvissible = false;
-      this.practicePageVissible = true;
+      this.router.navigate(['employee-practice'])
     }
 
     public crashcourse():void{
+      this.router.navigate(['employee-crash-course']);
 
     }
 
     public recommendations():void{
+      this.router.navigate(['employee-recommendations']);
 
     }
-    public logout():void{
-
+    public logout(): void {
+      
+          this.router.navigate(['']);
+        
     }
 
 }

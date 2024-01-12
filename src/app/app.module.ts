@@ -19,6 +19,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import { LevelComponent } from './level/level.component';
+import { CrashcourseComponent } from './crashcourse/crashcourse.component';
+import { RecommendationsComponent } from './recommendations/recommendations.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { LevelComponent } from './level/level.component';
     LoginComponent,
     SignupComponent,
     ForgetpasswordComponent,
-    LevelComponent
+    LevelComponent,
+    CrashcourseComponent,
+    RecommendationsComponent
   ],
   imports: [
     BrowserModule,
